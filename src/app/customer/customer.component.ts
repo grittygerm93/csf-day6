@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {lastValueFrom} from "rxjs";
 import {Customer} from "./customer.model";
+import {CustomerService} from "./customer.service";
 
 @Component({
   selector: 'app-customer',
@@ -10,7 +11,7 @@ import {Customer} from "./customer.model";
 })
 export class CustomerComponent implements OnInit {
 
-  customer: Customer;
+ /* customer: Customer;
 
   constructor(private http: HttpClient) { }
 
@@ -23,10 +24,10 @@ export class CustomerComponent implements OnInit {
     //   .catch(error => console.log(error));
 
 //    using subscription and with queryparams set inline..
-/*    this.http.get<Customer>('http://localhost:8080/api/customer/a', {params: new HttpParams().set('name', 'fred')})
+/!*    this.http.get<Customer>('http://localhost:8080/api/customer/a', {params: new HttpParams().set('name', 'fred')})
       .subscribe(res => {
         this.customer = res;
-      }, error => console.log(error))*/
+      }, error => console.log(error))*!/
 
     this.withQueryParams();
     this.withoutQueryParams();
@@ -59,5 +60,18 @@ export class CustomerComponent implements OnInit {
       .subscribe(res => {
         this.customer = res;
       }, error => console.log(error))
+  }*/
+
+
+  //////////////////////////////////////////////////
+  customer: Customer
+
+  constructor(private http: HttpClient, private customerService: CustomerService) { }
+
+  ngOnInit() {
+    this.customerService.getCustomer()
+      .then(res => this.customer = res)
   }
+
+
 }
