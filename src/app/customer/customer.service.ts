@@ -14,12 +14,14 @@ export class CustomerService {
 
   getCustomer(): Promise<Customer> {
     return lastValueFrom(
-      this.http.get<Customer>('http://localhost:8080/api/customer')
+      // this.http.get<Customer>('http://localhost:8080/api/customer')
+      this.http.get<Customer>('https://csf-day6.herokuapp.com/api/customer')
     )
   }
 
   getCustomerAsObs(): Observable<Customer> {
-    return this.http.get<Customer>('http://localhost:8080/api/customer')
+    // return this.http.get<Customer>('http://localhost:8080/api/customer')
+    return this.http.get<Customer>('https://csf-day6.herokuapp.com/api/customer')
 
   }
 
