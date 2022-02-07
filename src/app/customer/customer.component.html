@@ -1,0 +1,6 @@
+<div *ngIf="customer">
+  <p>name: {{customer.name}}</p>
+  <p>address: {{customer.address}}</p>
+  <p>email: {{customer.email}}</p>
+</div>
+<p *ngIf="!customer">server not started</p>
