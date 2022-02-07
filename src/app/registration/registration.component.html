@@ -1,1 +1,13 @@
-<p>registration works!</p>
+<h3>Registration</h3>
+<form (ngSubmit)="onSubmit()" [formGroup]="form" style="width: 300px">
+  <label for="name" class="form-label">Name</label>
+  <input type="text" id="name" formControlName="name" class="form-control">
+
+  <label for="email" class="form-label">Email</label>
+  <input type="text" id="email" formControlName="email" class="form-control mb-3">
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+<p *ngIf="message">{{message}}</p>

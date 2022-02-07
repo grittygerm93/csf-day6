@@ -1,0 +1,7 @@
+<h3>Openweather</h3>
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">City</span>
+  <input type="text" class="form-control" placeholder="City" aria-label="city" aria-describedby="basic-addon1" #city>
+</div>
+<button (click)="onSubmit(city)" class="btn btn-secondary">Get Weather</button>
+<p *ngIf="temp">The temperature in {{city.value}} is {{temp | number}} degC</p>
